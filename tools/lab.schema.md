@@ -1,4 +1,4 @@
-<!-- Generated from khai-workbench domains/clickhouse/tools/lab.schema.md @d4583b0 — edit there, not here (sync.py). -->
+<!-- Generated from khai-workbench domains/clickhouse/tools/lab.schema.md @f01143a — edit there, not here (sync.py). -->
 # lab.yaml — the lab contract
 
 [English](#english) | [한국어](#한국어)
@@ -39,7 +39,7 @@ then lists the lab but cannot run it (no `clickhouse` key).
 | `summary_ko` | one-line summary, Korean | yes |
 | `category` | one of `cloud`, `feature`, `case-study`, `core-architecture`, `clickstack`, `langfuse`, `librechat`, `third-party`, `xata`, `runreveal`, `competition`, `customer-story` — the site's article categories | yes |
 | `title_en`, `summary_en` | English title and summary | no |
-| `tags` | 1–5 topic keys, `[a, b]`, from the notes site's list: `mergetree`, `index`, `projection`, `materialized-view`, `ingestion`, `updates-deletes`, `join`, `performance`, `replication`, `cloud-architecture`, `cloud-operations`, `migration`, `clickpipes`, `kafka`, `postgres`, `mysql`, `data-lake`, `vector-search`, `full-text-search`, `geo`, `observability`, `clickstack`, `opentelemetry`, `timeseries`, `llm`, `langfuse`, `librechat`, `ai-agents`, `benchmark`, `roadmap` | no |
+| `tags` | 1–5 topic keys, `[a, b]`, from the notes site's list: `mergetree`, `index`, `projection`, `materialized-view`, `ingestion`, `updates-deletes`, `join`, `performance`, `replication`, `cloud-architecture`, `cloud-operations`, `security`, `migration`, `clickpipes`, `kafka`, `postgres`, `mysql`, `data-lake`, `vector-search`, `full-text-search`, `geo`, `observability`, `clickstack`, `opentelemetry`, `timeseries`, `llm`, `langfuse`, `librechat`, `ai-agents`, `benchmark`, `roadmap` | no |
 
 Each published entry carries `path`, the publishing keys that are set (`tags` as a list), the runner keys
 `target` · `tier` · `clickhouse` · `verified_on` that are set, `readme_ko` / `readme_en` (the
@@ -92,7 +92,7 @@ Workshop profiles that include labs follow this contract; they do not define the
 | `summary_ko` | 한 줄 요약(한국어) | 예 |
 | `category` | `cloud`, `feature`, `case-study`, `core-architecture`, `clickstack`, `langfuse`, `librechat`, `third-party`, `xata`, `runreveal`, `competition`, `customer-story` 중 하나 — 사이트 글 분류와 같다 | 예 |
 | `title_en`, `summary_en` | 영어 제목과 요약 | 아니오 |
-| `tags` | 주제 키 1~5개, `[a, b]`, 노트 사이트 목록에서: `mergetree`, `index`, `projection`, `materialized-view`, `ingestion`, `updates-deletes`, `join`, `performance`, `replication`, `cloud-architecture`, `cloud-operations`, `migration`, `clickpipes`, `kafka`, `postgres`, `mysql`, `data-lake`, `vector-search`, `full-text-search`, `geo`, `observability`, `clickstack`, `opentelemetry`, `timeseries`, `llm`, `langfuse`, `librechat`, `ai-agents`, `benchmark`, `roadmap` | 아니오 |
+| `tags` | 주제 키 1~5개, `[a, b]`, 노트 사이트 목록에서: `mergetree`, `index`, `projection`, `materialized-view`, `ingestion`, `updates-deletes`, `join`, `performance`, `replication`, `cloud-architecture`, `cloud-operations`, `security`, `migration`, `clickpipes`, `kafka`, `postgres`, `mysql`, `data-lake`, `vector-search`, `full-text-search`, `geo`, `observability`, `clickstack`, `opentelemetry`, `timeseries`, `llm`, `langfuse`, `librechat`, `ai-agents`, `benchmark`, `roadmap` | 아니오 |
 
 게시된 항목에는 `path`, 설정된 게시 키(`tags`는 목록), 설정된 러너 키 `target` · `tier` · `clickhouse` ·
 `verified_on`, `readme_ko` / `readme_en`(GitHub에서 실습 `README.md`의 `## 한국어` /

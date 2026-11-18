@@ -6,4 +6,4 @@ title_ko: "RunReveal 데이터 경로와 리전"
 summary_ko: "destination 서비스의 query_log 접속 주소를 AWS IP 대역에 대어, RunReveal의 INSERT와 콘솔 쿼리가 어느 리전에서 오는지 확인합니다."
 title_en: "RunReveal data path and region"
 summary_en: "Match the destination's query_log addresses to AWS IP ranges to see which region RunReveal's inserts and console queries come from."
-tags: [cloud-architecture]
+tags: [security, cloud-architecture]
