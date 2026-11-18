@@ -4,12 +4,16 @@ Snapshot of the repository. Planned work lives in [issues](https://github.com/li
 
 | Item | State (2026-11-18) |
 |---|---|
-| Labs | none yet; plan in #1 |
-| Lab tools | `tools/labs_json.py`, `tools/lab.schema.md` synced from khai-workbench; the `runreveal` category is not in their list yet, so no lab card can publish until it is |
-| `docs/labs.json` | written by `tools/labs_json.py`, no labs |
+| Labs | `schema-tour` (scenario 1), `data-path` (scenario 5), both run 2026-11-18, `web: false`; scenarios 2–4 wait for real sources (#1) |
+| Lab tools | `tools/labs_json.py`, `tools/lab.schema.md` synced from khai-workbench @d4583b0, with the `runreveal` category |
+| `docs/labs.json` | written by `tools/labs_json.py`; no lab sets `web: true` yet |
 | CI | one `guard` job on pull requests; `links` and `syntax` by hand |
 
 ## Pins
 
-None yet. The first lab records the RunReveal console build, the RunReveal CLI version and the
-ClickHouse version of the destination service, with the date of its run.
+| What | Pin | Recorded |
+|---|---|---|
+| Destination | ClickHouse Cloud 26.8.1.654, AWS `ap-northeast-2` | 2026-11-18 |
+| RunReveal client (from `query_log.client_name`) | clickhouse-go 2.33.1, go 1.27.3 | 2026-11-18 |
+
+The RunReveal console build and CLI version are recorded by the first lab that uses them (scenario 4).
