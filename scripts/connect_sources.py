@@ -145,7 +145,11 @@ def main():
     if missing_api:
         sys.exit(f"connect_sources: not set: {', '.join(missing_api)}")
     api = Api(env)
-    existing = {s.get("name") for s in (api.call("GET", "/sources/list").get("result") or [])}
+    # The reply is {"result": {"values": [...]}}, with "values": null when there are none (2026-11-18).
+    listed = api.call("GET", "/sources/list").get("result") or {}
+    if isinstance(listed, dict):
+        listed = listed.get("values") or []
+    existing = {s.get("name") for s in listed if isinstance(s, dict)}
     failed = 0
     for name, body in bodies.items():
         if body["name"] in existing:
