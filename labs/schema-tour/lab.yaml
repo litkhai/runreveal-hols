@@ -1,0 +1,9 @@
+# Lab contract: ../../tools/lab.schema.md. Not published to the notes site until the owner chooses (web).
+verified_on: "ClickHouse Cloud 26.8.1.654, ap-northeast-2 (2026-11-18)"
+web: false
+category: runreveal
+title_ko: "RunReveal이 ClickHouse에 만드는 스키마"
+summary_ko: "ClickHouse Cloud destination이 만드는 객체 171개를 system 테이블로 읽고, 넓은 logs 테이블과 view, 무거운 소스용 MV, TTL 하한을 확인합니다."
+title_en: "The schema RunReveal builds"
+summary_en: "Read the 171 objects the ClickHouse Cloud destination creates: one wide logs table read through views, MVs for heavy sources, and the TTL floor."
+tags: [materialized-view, mergetree]

@@ -24,7 +24,12 @@ synthetic attack data.
 
 ### 🧪 Labs
 
-No lab is published yet. The plan and its scenarios are in [#1](https://github.com/litkhai/runreveal-hols/issues/1).
+| Lab | Scenario | What it shows |
+|---|---|---|
+| [schema-tour](labs/schema-tour/) | 1 | The 171 objects in `runreveal`: one wide `logs` table read through views, MVs for heavy sources, TTL with a 7-day floor |
+| [data-path](labs/data-path/) | 5 | Inserts and console queries reach the destination from AWS `us-east-2`, wherever the destination is |
+
+Scenarios 2 to 4 need real sources and are planned in [#1](https://github.com/litkhai/runreveal-hols/issues/1).
 
 ### Prerequisites
 
@@ -61,7 +66,12 @@ AWS CloudTrail)에서 나옵니다. 데모 워크스페이스나 합성 공격 �
 
 ### 🧪 실습
 
-아직 공개한 실습은 없습니다. 계획과 시나리오는 [#1](https://github.com/litkhai/runreveal-hols/issues/1)에 있습니다.
+| 실습 | 시나리오 | 보여주는 것 |
+|---|---|---|
+| [schema-tour](labs/schema-tour/) | 1 | `runreveal`의 객체 171개: view로 읽는 넓은 `logs` 테이블, 무거운 소스용 MV, 하한 7일인 TTL |
+| [data-path](labs/data-path/) | 5 | destination이 어디 있든 insert와 콘솔 쿼리는 AWS `us-east-2`에서 들어온다 |
+
+시나리오 2~4는 실제 소스가 필요하며 [#1](https://github.com/litkhai/runreveal-hols/issues/1)에 계획이 있습니다.
 
 ### 준비물
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Generated from khai-workbench domains/clickhouse/tools/labs_json.py @cad82ab — edit there, not here (sync.py).
+# Generated from khai-workbench domains/clickhouse/tools/labs_json.py @d4583b0 — edit there, not here (sync.py).
 """labs_json — write docs/labs.json, the labs this repository publishes to the notes site.
 
     tools/labs_json.py            write docs/labs.json
@@ -19,7 +19,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = "docs/labs.json"
 CATEGORIES = ("cloud", "feature", "case-study", "core-architecture",
               "clickstack", "langfuse", "librechat", "third-party", "xata",
-              "competition", "customer-story")
+              "runreveal", "competition", "customer-story")
 # Topic tags: the notes site's list (src/data/tags.json there, #145); its sync rejects any other key.
 TAGS = ("mergetree", "index", "projection", "materialized-view", "ingestion", "updates-deletes",
         "join", "performance", "replication", "cloud-architecture", "cloud-operations",
