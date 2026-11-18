@@ -36,6 +36,21 @@ Scenarios 2 to 4 need real sources and are planned in [#1](https://github.com/li
 - A RunReveal workspace with the **ClickHouse Cloud** destination, pointed at a service you can query.
 - An LLM API key of your own for chat and agents, entered in the RunReveal console and never committed.
 
+### Connecting the sources
+
+`scripts/connect_sources.py` connects the lab's sources (ClickHouse Cloud audit, GitHub audit,
+AWS CloudTrail) through the RunReveal API. Copy `.env.example` to `.env`, run `chmod 600 .env`, and
+fill in the sources you want.
+
+```bash
+scripts/connect_sources.py --dry-run   # bodies with secrets masked, nothing sent
+scripts/connect_sources.py             # test each source, create it only if the test passes
+```
+
+The script skips a source with empty values and leaves a source with the same name alone. It
+creates nothing in AWS. For CloudTrail, deploy RunReveal's CloudFormation template first (it
+creates a bucket, an SNS topic and a trail, which cost money), then set `CLOUDTRAIL_BUCKET`.
+
 ### Repository checks
 
 Enable the guard once per clone:
@@ -77,6 +92,21 @@ AWS CloudTrail)에서 나옵니다. 데모 워크스페이스나 합성 공격 �
 
 - **ClickHouse Cloud** destination이 연결된 RunReveal 워크스페이스(직접 쿼리할 수 있는 서비스).
 - chat과 에이전트용 LLM API 키. RunReveal 콘솔에 직접 넣고 커밋하지 않습니다.
+
+### 소스 연결
+
+`scripts/connect_sources.py`가 RunReveal API로 실습 소스(ClickHouse Cloud audit, GitHub audit,
+AWS CloudTrail)를 연결합니다. `.env.example`을 `.env`로 복사하고 `chmod 600 .env` 한 뒤, 연결할
+소스의 값을 채웁니다.
+
+```bash
+scripts/connect_sources.py --dry-run   # 시크릿을 가린 요청 본문만 출력, 전송 안 함
+scripts/connect_sources.py             # 소스마다 test, 통과한 것만 create
+```
+
+값이 빈 소스는 건너뛰고, 같은 이름의 소스가 이미 있으면 건드리지 않습니다. AWS에는 아무것도
+만들지 않습니다. CloudTrail은 RunReveal의 CloudFormation 템플릿을 먼저 배포한 뒤(버킷, SNS topic,
+trail이 생기고 비용이 듭니다) `CLOUDTRAIL_BUCKET`을 채웁니다.
 
 ### 저장소 검사
 
