@@ -1,0 +1,73 @@
+# gitleaks configuration for runreveal-hols (ClickHouse rules copied from clickhouse-hols)
+#
+# This repository is public and every lab writes security logs into a ClickHouse
+# Cloud service through RunReveal, so service hostnames, ClickHouse credentials
+# and RunReveal tokens are the things most likely to be committed by accident.
+# The default rule set already covers LLM provider keys (BYO key for chat and agents).
+#
+# Local use:   gitleaks detect  --config .gitleaks.toml --no-banner --redact
+# Staged only: gitleaks protect --staged --config .gitleaks.toml --no-banner
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "clickhouse-cloud-host"
+description = "ClickHouse Cloud service hostname"
+# Go's regexp is RE2: no lookahead, so "8-12 chars containing a digit" is
+# spelled out as digit-before-or-after-letters. Doc placeholders such as
+# production.us-east-1... are pure letters and therefore do not match.
+regex = '''\b[a-z0-9]{0,11}[0-9][a-z0-9]{0,11}\.[a-z0-9-]+\.(aws|gcp|azure)\.clickhouse\.cloud'''
+tags = ["clickhouse", "endpoint"]
+
+[[rules]]
+id = "clickhouse-cloud-api-key-secret"
+description = "ClickHouse Cloud API key secret"
+regex = '''(?i)(api[_-]?key[_-]?secret|CHC_API_KEY_SECRET|CLICKHOUSE_API_KEY_SECRET)\s*[:=]\s*["']?[A-Za-z0-9]{40,50}["']?'''
+tags = ["clickhouse", "credential"]
+
+[[rules]]
+id = "clickhouse-cloud-api-key-id"
+description = "ClickHouse Cloud API key id"
+regex = '''(?i)(api[_-]?key[_-]?id|CHC_API_KEY_ID|CLICKHOUSE_API_KEY_ID)\s*[:=]\s*["']?[A-Za-z0-9]{18,24}["']?'''
+tags = ["clickhouse", "credential"]
+
+[[rules]]
+id = "clickhouse-password-assignment"
+description = "Non-empty ClickHouse password assigned in code or config"
+regex = '''(?i)(CLICKHOUSE_PASSWORD|CH_PASSWORD|clickhouse[_-]?password)\s*[:=]\s*["'][^"'\s]{6,}["']'''
+tags = ["clickhouse", "credential"]
+
+[[rules]]
+id = "runreveal-token-assignment"
+description = "Non-empty RunReveal token or key assigned in code or config"
+# Matches on the variable name only: the token format has not been confirmed yet.
+# Replace with a shape rule once a real token has been inspected (and never committed).
+regex = '''(?i)(RUNREVEAL_(API_)?(TOKEN|KEY|SECRET)|RR_TOKEN)\s*[:=]\s*["']?[^"'\s$<{}-][^"'\s$<{}]{15,}["']?'''
+tags = ["runreveal", "credential"]
+
+[allowlist]
+description = "Placeholders and documented demo values"
+# Test the patterns below against the whole matched text, not just the captured
+# secret, so `CLICKHOUSE_PASSWORD='your-password'` is recognised as a template.
+regexTarget = "match"
+
+paths = [
+    '''\.example$''',
+    '''\.template$''',
+    '''(^|/)\.gitleaks\.toml$''',
+]
+
+regexes = [
+    # placeholder shapes used throughout the docs
+    '''<[A-Za-z_ -]+>''',
+    '''(?i)(your|example|placeholder|changeme|change_me|dummy|sample|xxx+|redacted)''',
+    '''\$\{?[A-Za-z_][A-Za-z0-9_]*(:-[^}]*)?\}?''',
+    # local-only endpoints
+    '''localhost''',
+    '''127\.0\.0\.1''',
+    # the standard AWS documentation account id
+    '''123456789012''',
+    # the example service id used across the docs
+    '''abc123\.''',
+]
