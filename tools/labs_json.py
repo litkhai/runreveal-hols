@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Generated from khai-workbench domains/clickhouse/tools/labs_json.py @d4583b0 — edit there, not here (sync.py).
+# Generated from khai-workbench domains/clickhouse/tools/labs_json.py @f01143a — edit there, not here (sync.py).
 """labs_json — write docs/labs.json, the labs this repository publishes to the notes site.
 
     tools/labs_json.py            write docs/labs.json
@@ -23,7 +23,7 @@ CATEGORIES = ("cloud", "feature", "case-study", "core-architecture",
 # Topic tags: the notes site's list (src/data/tags.json there, #145); its sync rejects any other key.
 TAGS = ("mergetree", "index", "projection", "materialized-view", "ingestion", "updates-deletes",
         "join", "performance", "replication", "cloud-architecture", "cloud-operations",
-        "migration", "clickpipes", "kafka", "postgres", "mysql", "data-lake", "vector-search",
+        "security", "migration", "clickpipes", "kafka", "postgres", "mysql", "data-lake", "vector-search",
         "full-text-search", "geo", "observability", "clickstack", "opentelemetry", "timeseries",
         "llm", "langfuse", "librechat", "ai-agents", "benchmark", "roadmap")
 MAX_TAGS = 5
