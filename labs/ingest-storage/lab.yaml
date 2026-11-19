@@ -1,0 +1,9 @@
+# Lab contract: ../../tools/lab.schema.md. Not published to the notes site until the owner chooses (web).
+verified_on: "ClickHouse Cloud 26.8.1.780, ap-northeast-2; window 2026-11-17 05:39 to 2026-11-19 14:00 UTC (2026-11-19)"
+web: false
+category: runreveal
+title_ko: "RunReveal의 수집과 저장, 첫 이틀"
+summary_ko: "실제 소스 두 개가 destination에 남긴 행·바이트·파트와 backfill 진행을 읽고, 저장된 것 대비 쓰기 양(위협 피드 약 20배)을 query_log로 잽니다."
+title_en: "RunReveal ingest and storage, first two days"
+summary_en: "Read the rows, bytes, parts and backfill two real sources left in the destination, and measure from query_log how much was written for what is kept (threat feed about 20x)."
+tags: [security, ingestion, materialized-view]

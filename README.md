@@ -27,9 +27,11 @@ synthetic attack data.
 | Lab | Scenario | What it shows |
 |---|---|---|
 | [schema-tour](labs/schema-tour/) | 1 | The 171 objects in `runreveal`: one wide `logs` table read through views, MVs for heavy sources, TTL with a 7-day floor |
+| [ingest-storage](labs/ingest-storage/) | 2 | First two days of two real sources: rows, bytes, parts, the 30-day backfill, and a threat feed that writes about 20× what it keeps |
+| [query-shapes](labs/query-shapes/) | 3 | Every SELECT RunReveal sent, one chat question followed as SQL, and a `sourceType` view vs `rawLog` `LIKE`/`ILIKE` |
 | [data-path](labs/data-path/) | 5 | Inserts and console queries reach the destination from AWS `us-east-2`, wherever the destination is |
 
-Scenarios 2 to 4 need real sources and are planned in [#1](https://github.com/litkhai/runreveal-hols/issues/1).
+Scenario 4 and the parts of 2 and 3 that need more sources are planned in [#1](https://github.com/litkhai/runreveal-hols/issues/1).
 
 ### Prerequisites
 
@@ -84,9 +86,11 @@ AWS CloudTrail)에서 나옵니다. 데모 워크스페이스나 합성 공격 �
 | 실습 | 시나리오 | 보여주는 것 |
 |---|---|---|
 | [schema-tour](labs/schema-tour/) | 1 | `runreveal`의 객체 171개: view로 읽는 넓은 `logs` 테이블, 무거운 소스용 MV, 하한 7일인 TTL |
+| [ingest-storage](labs/ingest-storage/) | 2 | 실제 소스 두 개의 첫 이틀: 행·바이트·파트, 30일 backfill, 남기는 양의 약 20배를 쓰는 위협 피드 |
+| [query-shapes](labs/query-shapes/) | 3 | RunReveal이 보낸 모든 SELECT, SQL로 따라간 chat 질문 하나, `sourceType` view 대 `rawLog` `LIKE`/`ILIKE` |
 | [data-path](labs/data-path/) | 5 | destination이 어디 있든 insert와 콘솔 쿼리는 AWS `us-east-2`에서 들어온다 |
 
-시나리오 2~4는 실제 소스가 필요하며 [#1](https://github.com/litkhai/runreveal-hols/issues/1)에 계획이 있습니다.
+시나리오 4와, 2·3 중 소스가 더 필요한 부분은 [#1](https://github.com/litkhai/runreveal-hols/issues/1)에 계획이 있습니다.
 
 ### 준비물
 
