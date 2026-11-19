@@ -1,0 +1,9 @@
+# Lab contract: ../../tools/lab.schema.md. Not published to the notes site until the owner chooses (web).
+verified_on: "ClickHouse Cloud 26.8.1.780, ap-northeast-2; window 2026-11-17 05:39 to 2026-11-19 14:00 UTC (2026-11-19)"
+web: false
+category: runreveal
+title_ko: "RunReveal이 보내는 쿼리 모양"
+summary_ko: "콘솔·마이그레이션·chat 에이전트가 보낸 SELECT를 모두 나열해 chat 질문 하나를 SQL로 따라가고, sourceType view와 rawLog LIKE·ILIKE가 읽는 행을 비교합니다."
+title_en: "Query shapes RunReveal sends"
+summary_en: "List every SELECT from the console, migrations and the chat agent, follow one chat question as SQL, and compare what a sourceType view and rawLog LIKE or ILIKE read."
+tags: [security, index, ai-agents]
